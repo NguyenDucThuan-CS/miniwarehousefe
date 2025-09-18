@@ -12,7 +12,7 @@ export default function AuthCallbackPage() {
     if (token) {
       // Store the token and redirect to dashboard
       localStorage.setItem('auth-token', token);
-      router.push('/dashboard');
+      router.push('/dashboard/default');
     } else {
       // If no token, redirect to login
       router.push('/login');

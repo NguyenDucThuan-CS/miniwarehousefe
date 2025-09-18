@@ -13,7 +13,7 @@ export default function LoginPage() {
     // Check if user is already logged in
     const token = localStorage.getItem('auth-token');
     if (token) {
-      router.push('/dashboard');
+      router.push('/dashboard/default');
     }
   }, [router]);
 
