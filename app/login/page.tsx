@@ -21,7 +21,8 @@ export default function LoginPage() {
     setLoading(true);
     try {
       // Redirect to backend Google OAuth
-      window.location.href = 'http://localhost:3001/auth/google';
+      const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3001';
+      window.location.href = `${apiBaseUrl}/auth/google`;
     } catch (error) {
       console.error('Sign in error:', error);
     } finally {

@@ -34,7 +34,8 @@ export default function Page() {
     }
 
     try {
-      const response = await fetch('http://localhost:3001/auth/profile', {
+      const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3001';
+      const response = await fetch(`${apiBaseUrl}/auth/profile`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
