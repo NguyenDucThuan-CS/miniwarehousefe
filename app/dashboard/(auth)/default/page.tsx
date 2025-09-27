@@ -27,31 +27,31 @@ export default function Page() {
   }, []);
 
   const checkAuth = async () => {
-    const token = localStorage.getItem('auth-token');
-    if (!token) {
-      window.location.href = '/login';
-      return;
-    }
+    // const token = localStorage.getItem('auth-token');
+    // if (!token) {
+    //   window.location.href = '/login';
+    //   return;
+    // }
 
-    try {
-      const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3001';
-      const response = await fetch(`${apiBaseUrl}/auth/profile`, {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-        },
-      });
+    // try {
+    //   const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3001';
+    //   const response = await fetch(`${apiBaseUrl}/auth/profile`, {
+    //     headers: {
+    //       'Authorization': `Bearer ${token}`,
+    //     },
+    //   });
       
-      if (response.ok) {
-        const userData = await response.json();
-        setUser(userData);
-      } else {
-        localStorage.removeItem('auth-token');
-        window.location.href = '/login';
-      }
-    } catch (error) {
-      localStorage.removeItem('auth-token');
-      window.location.href = '/login';
-    }
+    //   if (response.ok) {
+    //     const userData = await response.json();
+    //     setUser(userData);
+    //   } else {
+    //     localStorage.removeItem('auth-token');
+    //     window.location.href = '/login';
+    //   }
+    // } catch (error) {
+    //   localStorage.removeItem('auth-token');
+    //   window.location.href = '/login';
+    // }
   };
 
   const loadUsers = async () => {
